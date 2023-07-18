@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "supersql"
+version = "2023.5.11"
+description = "Thin wrapper on top of SQL that enables you write SQL code in python easily"
+authors = ["Tersoo Ortserga <codesage@live.com>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+asyncpg = "^0.27.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+pytest-asyncio = "^0.21.0"
+aiosqlite = "^0.19.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+keywords = ["SQL", "Database", "Python"]
+repository = "https://github.com/tersoo/pysupersql"
+documentation = "https://tersoo.github.io/pysupersql"
+readme = 'README.md'
+
+
+[tool.poetry.scripts]
+supersql = 'supersql:main'
+
+
+[tool.poetry.extras]
+mysql = ["aiomysql"]
+postgres = ["asyncpg"]
+sqlite = ["aiosqlite"]
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+addopts = "-v --cov=supersql --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=100"
+

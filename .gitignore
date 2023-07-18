@@ -1,0 +1,7 @@
+.token
+.env
+.*/
+dist/
+*.db
+*.lock
+sommeliers.py
